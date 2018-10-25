@@ -21,7 +21,7 @@
       }
     },
     async mounted() {
-      const res = await axios('http://localhost:1337/algos')
+      const res = await axios('http://389d28f4.ngrok.io/algos')
       this.algos = res.data
     }
   }
