@@ -21,7 +21,7 @@
       }
     },
     async mounted() {
-      const res = await axios('http://389d28f4.ngrok.io/algos')
+      const res = await axios('https://389d28f4.ngrok.io/algos')
       this.algos = res.data
     }
   }
