@@ -3,8 +3,14 @@
     <h2>Sample Models Menu for Reveal team</h2>
 
     <ul>
-      <li v-for="algo in algos" :key="algo.id">
-        {{algo.name}} ({{algo.version}}) <a :href="algo.docs_link">docs</a> - {{algo.description}}
+      <li v-for="algo in algos" :key="algo._id">
+        {{algo.name}}
+        [
+        <a v-for="release in algo.releases" :key="release._id" href="#">
+          {{release.version}}
+        </a>
+        ]
+        - {{algo.description}}
       </li>
     </ul>
   </div>
@@ -21,7 +27,7 @@
       }
     },
     async mounted() {
-      const res = await axios('https://389d28f4.ngrok.io/algos')
+      const res = await axios('https://disarm-api-manager.herokuapp.com/algos')
       this.algos = res.data
     }
   }
