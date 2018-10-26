@@ -5,10 +5,13 @@
     <ul>
       <li v-for="algo in algos" :key="algo._id">
         {{algo.name}}
-        [
-        <a v-for="release in algo.releases" :key="release._id" href="#">
-          {{release.version}}
-        </a>
+        [ Versions:
+        <span v-for="(release, index) in algo.releases" :key="release._id" >
+          <a href="#">
+            {{release.version}}
+          </a>
+          <span v-if="index + 1 != algo.releases.length">, </span>
+        </span>
         ]
         - {{algo.description}}
       </li>
